@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: java-maven-app
+    container_name: java-maven-container
+    environment:
+      - JAVA_OPTS=-Xmx256m -Xms128m
+    stdin_open: true
+    tty: true
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-container
+    ports:
+      - "8080:8080"   # Jenkins Web UI
+      - "50000:50000" # For Jenkins agents
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins_home:
