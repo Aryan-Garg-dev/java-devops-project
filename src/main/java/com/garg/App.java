@@ -36,10 +36,10 @@ public class App
 
     public static void printDiagSum(int[][] matrix){
 //        int[][] matrix = new int[3][3];
-        Console.log().println("Input 3X3 matrix:");
-        for (int i = 0; i < 3; i++){
-            matrix[i] = input.readIntArray(3);
-        }
+//        Console.log().println("Input 3X3 matrix:");
+//        for (int i = 0; i < 3; i++){
+//            matrix[i] = input.readIntArray(3);
+//        }
         Console.log()
           .print("Sum of Diag Elements: ")
           .println(IntArray.diagonalSum2d(matrix));
